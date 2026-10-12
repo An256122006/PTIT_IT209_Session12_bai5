@@ -49,6 +49,12 @@ file: ./Dockerfile
 
 Kiểm tra Dockerfile tồn tại ở thư mục gốc repository.
 
+### Lỗi 4: Gradle Wrapper JAR không hợp lệ
+
+**Nguyên nhân:** `gradle/actions/setup-gradle@v4` kiểm tra các Gradle Wrapper JAR trong repository. JAR có kích thước 0 byte không khớp với checksum của wrapper chính thức và làm bước setup thất bại.
+
+**Cách khắc phục:** Khôi phục wrapper từ một bản Gradle chính thức; không tắt kiểm tra wrapper. Dự án Gradle nằm trong `session12/ex5`, vì vậy các lệnh Gradle trong workflow phải chạy từ thư mục đó. Wrapper hiện dùng Gradle 8.14.3, tương thích với Java 21.
+
 ## 3. Quy trình kiểm tra
 
 1. Sửa file `.github/workflows/broken-pipeline.yml`.

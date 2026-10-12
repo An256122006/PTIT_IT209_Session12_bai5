@@ -15,6 +15,10 @@ jobs:
   build-and-push:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: session12/ex5
+
     steps:
       - name: Checkout source code
         uses: actions/checkout@v4
